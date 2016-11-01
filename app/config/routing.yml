@@ -5,4 +5,5 @@ app:
 app_book:
     resource: |
         alias: app.book
-    type: sylius.resource_api
+        grid: app_book
+    type: sylius.resource

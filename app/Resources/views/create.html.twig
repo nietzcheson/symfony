@@ -1,0 +1,13 @@
+<h1>Create</h1>
+
+{{ dump() }}
+
+
+{% import 'SyliusUiBundle:Macro:buttons.html.twig' as buttons %}
+
+<form action="{{ form.vars.action }}" method="{{ form.vars.method }}">
+
+    {{ form_widget(form) }}
+    {% include '@SyliusUi/Form/Buttons/_create.html.twig' with {'paths': {'cancel': path(configuration.getRouteName('index'), configuration.vars.route.parameters|default({}))}} %}
+
+</form>

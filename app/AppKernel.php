@@ -26,6 +26,7 @@ class AppKernel extends Kernel
             new Bazinga\Bundle\HateoasBundle\BazingaHateoasBundle(),
             new winzou\Bundle\StateMachineBundle\winzouStateMachineBundle(),
             new Sylius\Bundle\GridBundle\SyliusGridBundle(),
+            new Sylius\Bundle\UiBundle\SyliusUiBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {

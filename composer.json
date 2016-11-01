@@ -23,11 +23,14 @@
         "sensio/framework-extra-bundle": "^3.0.2",
         "incenteev/composer-parameter-handler": "~2.0",
         "sylius/resource-bundle": "^0.19.0",
-        "sylius/grid-bundle": "^1.0@dev"
+        "sylius/grid-bundle": "^1.0@dev",
+        "sylius/ui-bundle": "1.0.x-dev",
+        "knplabs/knp-menu-bundle": "^2.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "~3.0",
         "symfony/phpunit-bridge": "~2.7"
+
     },
     "scripts": {
         "symfony-scripts": [

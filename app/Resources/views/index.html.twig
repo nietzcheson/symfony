@@ -1,0 +1,65 @@
+{{ dump() }}
+
+{% import 'SyliusUiBundle:Macro:headers.html.twig' as headers %}
+{% import 'SyliusUiBundle:Macro:pagination.html.twig' as pagination %}
+{% import 'SyliusUiBundle:Macro:buttons.html.twig' as buttons %}
+{% import 'SyliusUiBundle:Macro:messages.html.twig' as messages %}
+{% import 'SyliusUiBundle:Macro:table.html.twig' as table %}
+
+{% set definition = resources.definition %}
+{% set data = resources.data %}
+
+{% set header = configuration.vars.header|default(metadata.applicationName~'.ui.'~metadata.pluralName) %}
+
+{% block title %}{{ header|trans }}{% endblock %}
+
+{% if definition.actionGroups.main is defined and definition.getActions('main')|length > 0 %}
+    {% for action in definition.getActions('main') %}
+        {{ sylius_grid_render_action(resources, action, null) }}
+    {% endfor %}
+{% endif %}
+
+
+{% set path = path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) %}
+
+{% if definition.filters|length > 0 %}
+    <div class="ui segment">
+        <form method="get" action="{{ path }}" class="ui loadable form">
+            <div class="two fields">
+                {% for filter in definition.filters %}
+                {{ sylius_grid_render_filter(grid, filter) }}
+
+                {% if loop.index0 % 2 %}
+            </div>
+            <div class="two fields">
+                {% endif %}
+                {% endfor %}
+            </div>
+            {{ buttons.filter() }}
+            {{ buttons.resetFilters(path) }}
+        </form>
+    </div>
+{% endif %}
+
+<div class="ui segment">
+    {{ pagination.render(data) }}
+    {% if data|length > 0 %}
+        <table class="ui sortable stackable celled table">
+            <thead>
+            <tr>
+                {{ table.headers(resources, definition, app.request.attributes) }}
+            </tr>
+            </thead>
+            <tbody>
+            {% for row in data %}
+                <tr>
+                    {{ table.row(resources, definition, row) }}
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        {{ messages.info('sylius.ui.no_results_to_display'|trans) }}
+    {% endif %}
+    {{ pagination.render(data) }}
+</div>
