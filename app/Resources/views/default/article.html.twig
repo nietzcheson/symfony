@@ -1,0 +1,29 @@
+<form action="" method="POST">
+    {{ form_widget(form) }}
+    <button type="submit">Create</button>
+</form>
+
+<table>
+
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Article</th>
+            <th>State</th>
+            <t></t>
+        </tr>
+    </thead>
+    <tbody>
+    {% for article in articles  %}
+        <tr>
+            <td>{{ article.id }}</td>
+            <td>{{ article.article }}</td>
+            <td>{{ article.state }}</td>
+            <td>
+                <button>Next step</button></td>
+        </tr>
+    {% endfor %}
+
+    </tbody>
+
+</table>

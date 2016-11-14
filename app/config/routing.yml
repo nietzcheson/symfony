@@ -6,4 +6,6 @@ app_book:
     resource: |
         alias: app.book
         grid: app_book
+        redirect: update
     type: sylius.resource
+    defaults:

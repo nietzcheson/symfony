@@ -11,7 +11,24 @@
 
 {% set header = configuration.vars.header|default(metadata.applicationName~'.ui.'~metadata.pluralName) %}
 
-{% block title %}{{ header|trans }}{% endblock %}
+
+
+<div class="ui stackable two column grid">
+    <div class="column">
+        {{ headers.default(header|trans, configuration.vars.icon|default('list'), configuration.vars.subheader|default(null)|trans) }}
+
+        {% include configuration.vars.templates.breadcrumb|default('Crud/Index/_breadcrumb.html.twig') %}
+    </div>
+    <div class="middle aligned column">
+        <div class="ui right floated buttons">
+            {% if definition.actionGroups.main is defined and definition.getActions('main')|length > 0 %}
+                {% for action in definition.getActions('main') %}
+                    {{ sylius_grid_render_action(resources, action, null) }}
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</div>
 
 {% if definition.actionGroups.main is defined and definition.getActions('main')|length > 0 %}
     {% for action in definition.getActions('main') %}
@@ -27,7 +44,7 @@
         <form method="get" action="{{ path }}" class="ui loadable form">
             <div class="two fields">
                 {% for filter in definition.filters %}
-                {{ sylius_grid_render_filter(grid, filter) }}
+                {{ sylius_grid_render_filter(resources, filter) }}
 
                 {% if loop.index0 % 2 %}
             </div>

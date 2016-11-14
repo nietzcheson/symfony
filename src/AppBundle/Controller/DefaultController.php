@@ -2,9 +2,11 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Form\ArticleType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use AppBundle\Entity\Article;
 
 class DefaultController extends Controller
 {
@@ -17,5 +19,40 @@ class DefaultController extends Controller
         return $this->render('default/index.html.twig', array(
             'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
         ));
+    }
+
+    /**
+     * @Route("/article", name="article")
+     */
+    public function articleAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $article = new Article();
+
+        $articleForm = $this->createForm(new ArticleType(), $article)->handleRequest($request);
+
+        if($articleForm->isValid()){
+
+            $article->setState('new');
+
+            $factory = $this->get('sm.factory');
+
+            $articleSM = $factory->get($article, 'app_article');
+
+            $articleSM->apply('create');
+
+            $em->persist($article);
+            $em->flush();
+
+        }
+
+        $articles = $em->getRepository('AppBundle:Article')->findAll();
+
+        return $this->render('default/article.html.twig', array(
+            'form' => $articleForm->createView(),
+            'articles' => $articles
+        ));
+
     }
 }

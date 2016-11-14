@@ -1,3 +1,6 @@
 {% import 'SyliusUiBundle:Macro:buttons.html.twig' as buttons %}
 
-{{ buttons.edit(path(grid.requestConfiguration.getRouteName('update'), {'id': data.id|default(1)})) }}
+{% if data.id is defined %}
+    {{ buttons.edit(path(grid.requestConfiguration.getRouteName('update'), {'id': data.id })) }}
+{% endif %}
+

@@ -1,0 +1,8 @@
+{% import 'Macro/breadcrumb.html.twig' as breadcrumb %}
+
+{% set breadcrumbs = [
+        { label: (metadata.applicationName~'.ui.'~metadata.pluralName)|trans },
+    ]
+%}
+
+{{ breadcrumb.crumble(breadcrumbs) }}

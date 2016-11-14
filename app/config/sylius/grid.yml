@@ -5,6 +5,9 @@ sylius_grid:
             create: "Grid/Action/create.html.twig"
             update: "Grid/Action/update.html.twig"
             delete: "Grid/Action/delete.html.twig"
+        filter:
+            string: "Grid/Filter/string.html.twig"
+            boolean: "Grid/Filter/boolean.html.twig"
     grids:
         app_book:
             driver:
@@ -31,7 +34,11 @@ sylius_grid:
                         type: update
                     delete:
                         type: delete
-
+            filters:
+                title:
+                    type: string
+                author:
+                    type: string
 
 
 
