@@ -7,6 +7,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Entity\Article;
+use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends Controller
 {
@@ -54,5 +55,42 @@ class DefaultController extends Controller
             'articles' => $articles
         ));
 
+    }
+
+    /**
+     * @Route("/send-mail", name="send_mail")
+     */
+    public function sendMailAction(Request $request)
+    {
+
+        $name = 'Cristian Angulo Nova';
+
+        $message = \Swift_Message::newInstance()
+            ->setSubject('Hello Email')
+            ->setFrom('no-reply@xoppal.com')
+            ->setTo('cristianangulonova@gmail.com')
+            ->setBody('Send from Xoppal')
+            /*->setBody(
+                $this->renderView(
+                // app/Resources/views/Emails/registration.html.twig
+                    'Email/send-mail.html.twig',
+                    array('name' => $name)
+                ),
+                'text/html'
+            )*/
+            /*
+             * If you also want to include a plaintext version of the message
+            ->addPart(
+                $this->renderView(
+                    'Emails/registration.txt.twig',
+                    array('name' => $name)
+                ),
+                'text/plain'
+            )
+            */
+        ;
+        $this->get('mailer')->send($message);
+
+        return new Response('Send mail');
     }
 }
