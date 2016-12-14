@@ -19,14 +19,14 @@ class AppKernel extends Kernel
 
             ### Sylius Project
 
-            new FOS\RestBundle\FOSRestBundle(),
+            /*new FOS\RestBundle\FOSRestBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle($this),
             new Sylius\Bundle\ResourceBundle\SyliusResourceBundle(),
             new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
             new Bazinga\Bundle\HateoasBundle\BazingaHateoasBundle(),
             new winzou\Bundle\StateMachineBundle\winzouStateMachineBundle(),
             new Sylius\Bundle\GridBundle\SyliusGridBundle(),
-            new Sylius\Bundle\UiBundle\SyliusUiBundle()
+            new Sylius\Bundle\UiBundle\SyliusUiBundle()*/
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {
