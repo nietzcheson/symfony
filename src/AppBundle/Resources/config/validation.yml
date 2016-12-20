@@ -1,0 +1,9 @@
+AppBundle\Entity\Article:
+    properties:
+        article:
+            - NotBlank: ~
+
+AppBundle\Entity\Book:
+    properties:
+        title:
+            - NotBlank: ~

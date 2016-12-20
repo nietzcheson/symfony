@@ -6,17 +6,14 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ArticleType extends AbstractType
+class BookType extends AbstractType
 {
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('article')
-            ->add('book', new BookType(), ['mapped' => false])
-        ;
+        $builder->add('title')->add('author')->add('description')        ;
     }
     
     /**
@@ -25,8 +22,7 @@ class ArticleType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Article',
-            //'cascade_validation' => true
+            'data_class' => 'AppBundle\Entity\Book'
         ));
     }
 
@@ -35,14 +31,8 @@ class ArticleType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_article';
+        return 'appbundle_book';
     }
 
 
 }
-
-190 x 2 = 380
-280 x 2 = 520
-160     = 160
-260     = 260
-

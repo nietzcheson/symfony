@@ -37,11 +37,11 @@ class DefaultController extends Controller
 
             $article->setState('new');
 
-            $factory = $this->get('sm.factory');
+            //$factory = $this->get('sm.factory');
 
-            $articleSM = $factory->get($article, 'app_article');
+            //$articleSM = $factory->get($article, 'app_article');
 
-            $articleSM->apply('create');
+            //$articleSM->apply('create');
 
             $em->persist($article);
             $em->flush();

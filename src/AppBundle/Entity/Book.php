@@ -10,7 +10,7 @@ use Sylius\Component\Resource\Model\ResourceInterface;
  * @ORM\Table(name="book")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\BookRepository")
  */
-class Book implements ResourceInterface
+class Book
 {
     /**
      * @var int
