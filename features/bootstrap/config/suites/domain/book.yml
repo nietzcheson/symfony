@@ -1,0 +1,8 @@
+default:
+    suites:
+        book:
+            contexts_services:
+                - context.book
+
+            filters:
+                tags: "@book && @ui"

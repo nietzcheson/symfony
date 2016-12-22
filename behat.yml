@@ -1,7 +1,3 @@
-default:
-  autoload:
-    '': %paths.base%/features/bootstrap
-  suites:
-    default:
-      paths:
-        - %paths.base%/features
+imports:
+    - features/bootstrap/config/profiles.yml
+    - features/bootstrap/config/suites.yml

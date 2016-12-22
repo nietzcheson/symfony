@@ -1,0 +1,8 @@
+default:
+    suites:
+        article:
+            contexts_services:
+                - context.article
+
+            filters:
+                tags: "@article && @ui"

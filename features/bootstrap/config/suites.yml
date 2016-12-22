@@ -1,0 +1,3 @@
+imports:
+    - suites/domain/article.yml
+    - suites/domain/book.yml
