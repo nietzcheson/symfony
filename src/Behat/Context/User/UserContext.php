@@ -1,6 +1,6 @@
 <?php
 
-namespace Context\User;
+namespace Behat\Context\User;
 
 use Behat\Behat\Tester\Exception\PendingException;
 use Behat\Behat\Context\Context;

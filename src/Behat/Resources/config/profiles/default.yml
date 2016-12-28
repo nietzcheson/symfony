@@ -4,4 +4,4 @@ default:
 
         FriendsOfBehat\ContextServiceExtension:
               imports:
-                  - "features/bootstrap/config/services.yml"
+                  - "src/Behat/Resources/config/services.yml"
