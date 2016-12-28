@@ -1,0 +1,8 @@
+default:
+    suites:
+        user:
+            contexts_services:
+                - context.user
+
+            filters:
+                tags: "@user && @ui"

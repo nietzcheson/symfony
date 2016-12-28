@@ -2,9 +2,14 @@ services:
     context.article:
         class: AppBundle\Context\Article\ArticleContext
         tags:
-          - { name: fob.context_service }
+            - { name: fob.context_service }
 
     context.book:
         class: AppBundle\Context\Book\BookContext
         tags:
-          - { name: fob.context_service }
+            - { name: fob.context_service }
+
+    context.user:
+        class: AppBundle\Context\User\UserContext
+        tags:
+            - { name: fob.context_service }

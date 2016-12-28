@@ -1,3 +1,4 @@
 imports:
     - suites/domain/article.yml
     - suites/domain/book.yml
+    - suites/domain/user.yml
