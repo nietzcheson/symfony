@@ -1,12 +1,25 @@
 <?php
 
-namespace Behat\Context\Article;
+namespace AppBundle\Context\Article;
 
 use Behat\Behat\Tester\Exception\PendingException;
 use Behat\Behat\Context\Context;
+use Doctrine\ORM\EntityManagerInterface;
 
 class ArticleContext implements Context
 {
+    /**
+     * @var EntityManagerInterface $entityManager
+     */
+    private $entityManager;
+
+    /**
+     * @param EntityManagerInterface $entityManager
+     */
+    public function __construct(EntityManagerInterface $entityManager)
+    {
+        $this->entityManager = $entityManager;
+    }
 
     /**
      * @Given there is a :arg1, which costs £:arg2

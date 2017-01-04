@@ -1,0 +1,15 @@
+default:
+    extensions:
+
+        FriendsOfBehat\SymfonyExtension: ~
+
+        FriendsOfBehat\ContextServiceExtension:
+            imports:
+                - "features/bootstrap/config/services.yml"
+
+        FriendsOfBehat\CrossContainerExtension: ~
+
+        FriendsOfBehat\VariadicExtension: ~
+
+
+

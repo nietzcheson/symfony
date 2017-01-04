@@ -1,6 +1,6 @@
 <?php
 
-namespace Behat\Context\Book;
+namespace AppBundle\Context\Book;
 
 use Behat\Behat\Tester\Exception\PendingException;
 use Behat\Behat\Context\Context;

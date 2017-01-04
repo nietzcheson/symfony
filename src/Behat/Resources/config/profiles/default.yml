@@ -1,7 +1,0 @@
-default:
-    extensions:
-        FriendsOfBehat\SymfonyExtension: ~
-
-        FriendsOfBehat\ContextServiceExtension:
-              imports:
-                  - "src/Behat/Resources/config/services.yml"
